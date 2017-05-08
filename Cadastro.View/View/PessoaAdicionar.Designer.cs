@@ -140,7 +140,7 @@
             this.btAdicionar.TabIndex = 6;
             this.btAdicionar.Text = "Adicionar";
             this.btAdicionar.UseVisualStyleBackColor = true;
-            this.btAdicionar.Click += new System.EventHandler(this.btAdicionarClick);
+            this.btAdicionar.Click += new System.EventHandler(this.BtAdicionarClick);
             // 
             // PessoaAdicionar
             // 

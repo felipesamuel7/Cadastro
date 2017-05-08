@@ -28,7 +28,7 @@ namespace Cadastro.View.View
             this.tbDataNascimento.Value = p.data_nascimento;
         }
 
-        private void btAdicionarClick(object sender, EventArgs e)
+        private void BtAdicionarClick(object sender, EventArgs e)
         {
             if (acao.Equals(Enums.Acoes.Criando))
             {

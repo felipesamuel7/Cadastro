@@ -93,7 +93,7 @@
             this.btAdicionar.TabIndex = 0;
             this.btAdicionar.Text = "Adicionar";
             this.btAdicionar.UseVisualStyleBackColor = true;
-            this.btAdicionar.Click += new System.EventHandler(this.btAdicionarClick);
+            this.btAdicionar.Click += new System.EventHandler(this.BtAdicionarClick);
             // 
             // btEditar
             // 
@@ -103,7 +103,7 @@
             this.btEditar.TabIndex = 1;
             this.btEditar.Text = "Editar";
             this.btEditar.UseVisualStyleBackColor = true;
-            this.btEditar.Click += new System.EventHandler(this.btEditarClick);
+            this.btEditar.Click += new System.EventHandler(this.BtEditarClick);
             // 
             // btRemover
             // 
@@ -113,7 +113,7 @@
             this.btRemover.TabIndex = 2;
             this.btRemover.Text = "Remover";
             this.btRemover.UseVisualStyleBackColor = true;
-            this.btRemover.Click += new System.EventHandler(this.btRemoverClick);
+            this.btRemover.Click += new System.EventHandler(this.BtRemoverClick);
             // 
             // Principal
             // 

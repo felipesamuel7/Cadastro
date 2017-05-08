@@ -25,10 +25,9 @@ namespace Cadastro.View
             this.dataGridViewPessoas.Columns[3].Width = 150;
         }
 
-        private void btRemoverClick(object sender, System.EventArgs e)
+        private void BtRemoverClick(object sender, System.EventArgs e)
         {
-            long id;
-            if (long.TryParse(dataGridViewPessoas.CurrentRow.Cells[0].Value.ToString(), out id))
+            if (long.TryParse(dataGridViewPessoas.CurrentRow.Cells[0].Value.ToString(), out long id))
             {
                 PessoaDal.DeleteById(id);
                 RefreshGrid();
@@ -40,25 +39,35 @@ namespace Cadastro.View
             this.dataGridViewPessoas.DataSource = PessoaDal.ListarPessoas();
         }
 
-        private void btAdicionarClick(object sender, System.EventArgs e)
+        private void BtAdicionarClick(object sender, System.EventArgs e)
         {
-            PessoaAdicionar form = new PessoaAdicionar(Enums.Acoes.Criando);
-            form.ShowInTaskbar = false;
-            form.ShowDialog(this);
+            ShowForm(Enums.Acoes.Criando, null);
             RefreshGrid();
         }
 
-        private void btEditarClick(object sender, System.EventArgs e)
+        private void BtEditarClick(object sender, System.EventArgs e)
         {
-            long id;
-            if (long.TryParse(dataGridViewPessoas.CurrentRow.Cells[0].Value.ToString(), out id))
+            if (long.TryParse(dataGridViewPessoas.CurrentRow.Cells[0].Value.ToString(), out long id))
             {
                 Pessoa p = PessoaDal.FindById(id);
-                PessoaAdicionar form = new PessoaAdicionar(Enums.Acoes.Editando, p);
-                form.ShowInTaskbar = false;
-                form.ShowDialog(this);
+                ShowForm(Enums.Acoes.Editando, p);
                 RefreshGrid();
             }
+        }
+
+        private void ShowForm(Enums.Acoes acao, Pessoa p)
+        {
+            PessoaAdicionar form;
+            if (p == null)
+            {
+                form = new PessoaAdicionar(acao);
+            }
+            else
+            {
+                form = new PessoaAdicionar(acao, p);
+            }
+            form.ShowInTaskbar = false;
+            form.ShowDialog(this);
         }
     }
 }
